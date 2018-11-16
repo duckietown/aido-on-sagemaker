@@ -5,9 +5,9 @@ def launch_env(id=None):
     env = None
     if id is None:
         # Needed for Running on Sagemaker.
-        import os
-        status = os.system("Xvfb :99 -screen 0 1024x768x24 -ac +extension GLX +render -noreset &")
-        os.environ['DISPLAY'] = ":99"
+        #import os
+        #status = os.system("Xvfb :99 -screen 0 1024x768x24 -ac +extension GLX +render -noreset &")
+        #os.environ['DISPLAY'] = ":99"
         
         # Launch the environment
         from gym_duckietown.simulator import Simulator
