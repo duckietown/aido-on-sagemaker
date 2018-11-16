@@ -131,8 +131,7 @@ def _train(args):
     
     print("Training done, about to save..")
     policy.save(filename='ddpg', directory=args.model_dir)
-    return
-
+    print("Finished saving..should return now!")
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
