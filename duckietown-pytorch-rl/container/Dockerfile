@@ -40,3 +40,7 @@ ENV SAGEMAKER_SUBMIT_DIRECTORY /opt/ml/code
 # for training and serving.
 # For more information: https://github.com/aws/sagemaker-pytorch-container
 ENV SAGEMAKER_PROGRAM train_ddpg.py
+
+# This entrypoint will help us launch the display
+ADD entrypoint.sh /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
