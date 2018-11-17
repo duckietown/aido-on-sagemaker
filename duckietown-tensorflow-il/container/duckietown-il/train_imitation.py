@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+
+import sys
 import cv2
 import numpy as np
 from model import TensorflowModel
@@ -84,4 +86,6 @@ for i in range(EPOCHS):
     # but I'm sure that you're smarter than that, what if this model is worse than the one we had before
     if i % 10 == 0:
         model.commit()
-        
+
+print("Training complete!")
+sys.exit(0)

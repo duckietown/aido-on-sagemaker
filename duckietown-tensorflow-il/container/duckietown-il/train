@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 # Copyright 2017-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 #
@@ -39,18 +39,19 @@ training_path = os.path.join(input_path, channel_name)
 
 # default params
 training_script = 'train_imitation.py'
-default_params = ['--model-dir', str(model_path)]
+default_params = []
 
 # Execute your training algorithm.
 def _run(cmd):
     """Invokes your training algorithm."""
     process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, env=os.environ)
     stdout, stderr = process.communicate()
-
     return_code = process.poll()
     if return_code:
-        error_msg = 'Return Code: {}, CMD: {}, Err: {}'.format(return_code, cmd, stderr)
+        error_msg = '[ERROR] Return Code: {}, CMD: {}, Err: {}'.format(return_code, cmd, stderr)
         raise Exception(error_msg)
+    
+    print(stdout.decode("utf-8"))
 
 
 def _hyperparameters_to_cmd_args(hyperparameters):
