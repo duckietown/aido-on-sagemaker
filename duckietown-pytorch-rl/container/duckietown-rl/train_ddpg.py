@@ -61,7 +61,7 @@ def _train(args):
     print("Initialized DDPG")
     
     # Evaluate untrained policy
-    # evaluations= [evaluate_policy(env, policy)]
+    evaluations= [evaluate_policy(env, policy)]
    
     total_timesteps = 0
     timesteps_since_eval = 0
