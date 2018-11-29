@@ -59,7 +59,7 @@ env.close()
 # here we assume the observations have been resized to 60x80
 OBSERVATIONS_SHAPE = (None, 60, 80, 3)
 ACTIONS_SHAPE = (None, 2)
-STORAGE_LOCATION = '/opt/ml/model'
+STORAGE_LOCATION = '/opt/ml/model/'
 
 actions = np.array(actions)
 observations = np.array(observations)
