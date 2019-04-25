@@ -1,7 +1,9 @@
-challenge: aido1_LF1_r3-v3
-protocol: aido1_remote3-v3
-user-label: "PyTorch Sagemaker template"
-description: |
-    This is a simple template for an agent that uses PyTorch for inference and Sagemaker for Training.
+# challenge name(s); defaults to all compatible challenges
+# challenge: [c1,c2]
 
-    [This code is documented here](https://docs.duckietown.org/DT18/AIDO/out/pytorch_template.html).
+# conventions + format
+protocol: aido2_db18_agent-z2
+user-label: "challenge-aido_LF-template-rl-sagemaker"
+user-payload: {}
+description: |
+    This is a simple RL Sagemaker Solution

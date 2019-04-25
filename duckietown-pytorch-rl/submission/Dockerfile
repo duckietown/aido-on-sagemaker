@@ -1,7 +1,6 @@
 # Definition of Submission container
 
-# We start from tensorflow-gpu image
-FROM duckietown/pytorch-v0.4.1-py27-cuda9.0
+FROM duckietown/aido2-base-python3:z2
 
 # DO NOT MODIFY: your submission won't run if you do
 RUN apt-get update -y && apt-get install -y --no-install-recommends \
@@ -30,8 +29,7 @@ COPY wrappers.py /workspace
 # we make the workspace our working directory
 WORKDIR /workspace
 
-# DO NOT MODIFY: your submission won't run if you do
-ENV DUCKIETOWN_SERVER=evaluator
+ENV DISABLE_CONTRACTS=1
 
 # let's see what you've got there...
 CMD python solution.py
