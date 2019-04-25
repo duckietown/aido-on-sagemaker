@@ -7,6 +7,7 @@ import gym_duckietown
 import os
 
 from args import get_ddpg_args_train
+from env import launch_env
 from ddpg import DDPG
 from utils import seed, evaluate_policy, ReplayBuffer
 from wrappers import NormalizeWrapper, ImgWrapper, \
@@ -28,7 +29,7 @@ if not os.path.exists("./results"):
 if args.save_models and not os.path.exists("./pytorch_models"):
     os.makedirs("./pytorch_models")
 
-env = gym.make("Duckietown-loop_obstacles-v0")
+env = launch_env()
 
 # Wrappers
 env = ResizeWrapper(env)
