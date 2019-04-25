@@ -1,7 +1,8 @@
-challenge: aido1_LF1_r3-v3
-protocol: aido1_remote3-v3
-user-label: "Tensorflow Sagemaker template"
-description: |
-    This is a simple template for an agent that uses Tensorflow for inference and Sagemaker for Training.
+# challenge name(s); defaults to all compatible challenges
+# challenge: [c1,c2]
 
-    [This code is documented here](https://docs.duckietown.org/DT18/AIDO/out/tensorflow_template.html).
+protocol: aido2_db18_agent-z2
+user-label: "challenge-aido_LF-template-sagemaker-il"
+user-payload: {}
+description: |
+    This is a simple template that uses Tensorflow on Sagemaker
