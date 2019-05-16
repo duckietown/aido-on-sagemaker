@@ -15,6 +15,8 @@ from wrappers import NormalizeWrapper, ImgWrapper, \
 
 policy_name = "DDPG"
 
+model_dir = os.environ['SM_MODEL_DIR']
+
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 args = get_ddpg_args_train()
@@ -26,8 +28,8 @@ file_name = "{}_{}".format(
 
 if not os.path.exists("./results"):
     os.makedirs("./results")
-if args.save_models and not os.path.exists("./pytorch_models"):
-    os.makedirs("./pytorch_models")
+if args.save_models and not os.path.exists(model_dir):
+    os.makedirs(model_dir)
 
 env = launch_env()
 
@@ -76,7 +78,7 @@ while total_timesteps < args.max_timesteps:
             evaluations.append(evaluate_policy(env, policy))
 
             if args.save_models:
-                policy.save(file_name, directory="./pytorch_models")
+                policy.save(file_name, directory=model_dir)
             np.savez("./results/{}.npz".format(file_name),evaluations)
 
         # Reset environment
@@ -121,5 +123,5 @@ while total_timesteps < args.max_timesteps:
 evaluations.append(evaluate_policy(env, policy))
 
 if args.save_models:
-    policy.save(file_name, directory="./pytorch_models")
+    policy.save(file_name, directory=model_dir)
 np.savez("./results/{}.npz".format(file_name),evaluations)
