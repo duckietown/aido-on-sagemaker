@@ -22,6 +22,7 @@ ARG REGION=us-east-1
 FROM 520713654638.dkr.ecr.$REGION.amazonaws.com/sagemaker-pytorch:0.4.0-cpu-py3
 
 # Installs for gym-duckietown
+RUN apt=get update
 RUN apt-get install -y freeglut3-dev xvfb xorg-dev libglu1-mesa libgl1-mesa-dev libxinerama1 libxcursor1
 RUN git clone -b aido1_lf1_r3-v3 https://github.com/duckietown/gym-duckietown src/gym-duckietown
 RUN pip install -e src/gym-duckietown/
